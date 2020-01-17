@@ -1,0 +1,114 @@
+.explore {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  overflow-x: hidden;
+}
+.explore-carousel {
+  width: 100%;
+  padding: 0 30px;
+}
+.explore-carousel .carousel-item {
+  border-radius: 10px;
+  height: 220px;
+  overflow: hidden;
+}
+.explore-classify {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.explore-classify .classify-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+.explore-classify .classify-item .item-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background-image: linear-gradient(to right, #fd5b4d, #ff1d11);
+}
+.explore-classify .classify-item .item-title {
+  font-size: 28px;
+  line-height: 1.5;
+  color: #333333;
+}
+.explore-music {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px;
+  color: #333333;
+}
+.explore-music .music-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.explore-music .music-header .header-title {
+  font-weight: bold;
+  font-size: 32px;
+}
+.explore-music .music-header .header-right {
+  padding: 0 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+}
+.explore-music .music-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+.explore .new-music-title {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+.explore .new-music-title div {
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  width: 100px;
+  text-align: left;
+}
+.explore .new-music-title::after {
+  content: "";
+  display: "block";
+  position: absolute;
+  width: 1px;
+  height: 22px;
+  top: 10px;
+  right: 120px;
+  background-color: #f2f2f2;
+}
+.explore .new-music .active-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+.explore .explore-video::before {
+  content: "";
+  display: block;
+  width: 100vw;
+  height: 20px;
+  background-color: #f2f2f2;
+  position: relative;
+  top: 0;
+}
+.explore .explore-video .stick-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 30px;
+  border-bottom: 1px solid#f2f2f2;
+}
