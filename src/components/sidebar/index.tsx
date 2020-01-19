@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./index.less";
-// interface props {
-//   name: number;
-// }
 const Sidebar: React.FC = () => {
+  useEffect(() => {
+    const wrapper = document.getElementById("wrapper");
+    if (wrapper) {
+      wrapper.addEventListener(
+        "touchmove",
+        function(e) {
+          e.stopPropagation();
+        },
+        false
+      );
+    }
+  }, []);
   const blockItem = [
     { img: require("../../assets/images/drawer-ticket.png"), name: "演出" },
     { img: require("../../assets/images/drawer-shop.png"), name: "商城" },
@@ -33,7 +42,7 @@ const Sidebar: React.FC = () => {
     { img: require("../../assets/images/drawer-zhibo.png"), name: "我要直播" }
   ];
   return (
-    <div className="wrapper">
+    <div className="wrapper" id="wrapper">
       <div className="wrapper-header">
         <div className="header-info">
           <div className="avator"></div>
@@ -98,9 +107,33 @@ const Sidebar: React.FC = () => {
         ))}
       </div>
       <div className="wrapper-footer">
-        <div className="left">夜间模式</div>
-        <div className="middle">设置</div>
-        <div className="right">退出</div>
+        <div className="footer-item">
+          <div className="footer-img">
+            <img
+              src={require("../../assets/images/drawer-night.png")}
+              alt="img"
+            />
+          </div>
+          <span>夜间模式</span>
+        </div>
+        <div className="footer-item">
+          <div className="footer-img">
+            <img
+              src={require("../../assets/images/drawer-set.png")}
+              alt="img"
+            />
+          </div>
+          <span>设置</span>
+        </div>
+        <div className="footer-item">
+          <div className="footer-img">
+            <img
+              src={require("../../assets/images/drawer-close.png")}
+              alt="img"
+            />
+          </div>
+          <span>退出</span>
+        </div>
       </div>
     </div>
   );

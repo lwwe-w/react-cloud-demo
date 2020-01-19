@@ -17,10 +17,6 @@ const Explore: React.FC = () => {
     { title: "电台" },
     { title: "直播" }
   ];
-  const albumParams = {
-    offset: 1,
-    limit: 3
-  };
 
   //state
   let [banners, setBanners] = useState([]);
@@ -33,8 +29,8 @@ const Explore: React.FC = () => {
   // 接口调用
   useEffect(() => {
     getBannerList();
-    getRecMusics();
     getNewAlbums();
+    getRecMusics();
   }, []);
 
   //切换新碟、新歌的状态
@@ -80,7 +76,7 @@ const Explore: React.FC = () => {
   //获取新碟
   async function getNewAlbums() {
     try {
-      let { albums } = await getNewAlbum(albumParams);
+      let { albums } = await getNewAlbum();
       setNewMusics(albums);
       setOldAlbums(albums);
     } catch (error) {
@@ -100,7 +96,23 @@ const Explore: React.FC = () => {
   }
   return (
     <div className="explore">
-      <Carousel autoplay infinite className="explore-carousel">
+      <Carousel
+        autoplay
+        infinite
+        className="explore-carousel"
+        dotStyle={{
+          width: "6px",
+          height: "6px",
+          marginRight: "4px",
+          marginBottom: "4px"
+        }}
+        dotActiveStyle={{
+          width: "6px",
+          height: "6px",
+          marginRight: "4px",
+          marginBottom: "4px"
+        }}
+      >
         {banners.map((val: any) => (
           <div className="carousel-item" key={val}>
             <img src={val.pic} alt="img" className="inner-img" />

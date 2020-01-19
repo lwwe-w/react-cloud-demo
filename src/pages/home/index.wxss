@@ -1,3 +1,6 @@
+.am-tabs-content-wrap {
+  padding-top: 80px;
+}
 .home {
   min-width: 100vw;
   min-height: 100vh;
@@ -8,23 +11,22 @@
   display: flex;
   position: relative;
 }
-.home-header .header-img {
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  top: 20px;
-  z-index: 10;
+.home-header .header-search {
+  right: 30px;
 }
 .home-header .header-list {
-  left: 20px;
-}
-.home-header .header-search {
-  right: 20px;
+  left: 30px;
 }
 .home .am-tabs-tab-bar-wrap {
-  height: 70px;
-  width: 80%;
-  margin: 0 auto;
+  height: 100px;
+  width: 100%;
+  padding: 0 70px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  background-color: #fff;
 }
 .home .am-tabs-default-bar-tab {
   height: 70px;
@@ -35,15 +37,36 @@
 .home .am-tabs-default-bar-underline {
   display: none;
 }
-.home .drawer {
+.drawer {
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
   width: 100%;
   height: 100%;
+}
+.header-img {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  top: 30px;
+  z-index: 40;
+}
+.am-drawer-sidebar {
   z-index: 100;
-  -webkit-overflow-scrolling: touch;
+}
+.tab-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  background-color: #fff;
+}
+.am-tabs-default-bar-content {
+  padding-top: 10px;
+}
+.am-tabs-default-bar-tab {
+  transform: all 500 ease;
+}
+.am-tabs-default-bar-tab-active {
+  font-size: 32px !important;
 }

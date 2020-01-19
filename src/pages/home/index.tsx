@@ -4,7 +4,6 @@ import "./index.less";
 import Explore from "@/components/explore";
 import Sidebar from "@/components/sidebar";
 
-interface Props {}
 const tabs = [
   { title: "我的" },
   { title: "发现" },
@@ -12,13 +11,16 @@ const tabs = [
   { title: "视频" }
 ];
 const Home: React.FC = () => {
-  let [drawerState, setDrawerState] = useState(true);
+  let [drawerState, setDrawerState] = useState(false);
+  const body = document.getElementsByTagName("body")[0];
   return (
     <div className="home">
       <div className="home-header">
         <div
           className="header-list header-img"
           onClick={() => {
+            body.style.overflow = "hidden";
+            $(".drawer").css("z-index", 40);
             setDrawerState(true);
           }}
         >
@@ -28,41 +30,18 @@ const Home: React.FC = () => {
             className="inner-img"
           />
         </div>
-        <Tabs tabs={tabs} initialPage={1} swipeable={false}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "250px",
-              backgroundColor: "#fff"
-            }}
-          >
-            我的
-          </div>
+        <Tabs
+          tabs={tabs}
+          initialPage={1}
+          swipeable={false}
+          tabBarActiveTextColor="#000"
+          tabBarInactiveTextColor="#999"
+          tabBarTextStyle={{ fontSize: "14px" }}
+        >
+          <div className="tab-text">我的</div>
           <Explore />
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "250px",
-              backgroundColor: "#fff"
-            }}
-          >
-            云村
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "250px",
-              backgroundColor: "#fff"
-            }}
-          >
-            视频
-          </div>
+          <div className="tab-text">云村</div>
+          <div className="tab-text">视频</div>
         </Tabs>
         <div className="header-search header-img">
           <img
@@ -74,14 +53,15 @@ const Home: React.FC = () => {
       </div>
       <Drawer
         className="drawer"
-        contentStyle={{ color: "#A6A6A6", textAlign: "center", paddingTop: 42 }}
         sidebar={<Sidebar />}
         open={drawerState}
         onOpenChange={() => {
+          body.style.overflow = "auto";
+          $(".drawer").css("z-index", 0);
           setDrawerState(false);
         }}
       >
-        12
+        <span></span>
       </Drawer>
     </div>
   );

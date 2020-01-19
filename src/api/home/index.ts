@@ -1,9 +1,9 @@
 import request from "@/utils/request";
 
 //新碟 传参
-type params = {
-  offset: number;
-  limit: number;
+const params = {
+  offset: 1,
+  limit: 3
 };
 
 //获取banner
@@ -28,7 +28,7 @@ function getRecMusicList() {
 }
 
 //获取新碟
-function getNewAlbum(params: params) {
+function getNewAlbum() {
   return request({
     url: "/top/album",
     method: "get",
